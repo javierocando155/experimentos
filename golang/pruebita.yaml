@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: probando
+  name: probando
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: probando
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: probando
+    spec:
+      containers:
+      - image: test:latest
+        name: test
+        imagePullPolicy: Never
+        resources: {}
+status: {}
