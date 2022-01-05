@@ -17,6 +17,7 @@ RUN go get github.com/valyala/fasthttp
 RUN go get github.com/go-delve/delve/cmd/dlv
 
 WORKDIR /go/src/work
+RUN ls
 COPY ./src /go/src/work/
 COPY ./configs /go/src/work/
 
