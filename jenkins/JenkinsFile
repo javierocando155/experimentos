@@ -1,14 +1,12 @@
 node('jenkins-slave') {
     
      stage('git') {
-        steps{
-            git credentialsId: 'jejejej', url: 'git@github.com:javierocando155/prueba.git', branch: 'main'
-            sh(script: """
-                echo "hello"
-            cd ./golang
-            
-            docker build -t test .
-            """)
-        }
+        git credentialsId: 'jejejej', url: 'git@github.com:javierocando155/prueba.git', branch: 'main'
+        sh(script: """
+            echo "hello"
+           cd ./golang
+           
+           docker build -t test .
+        """)
     }
 }
