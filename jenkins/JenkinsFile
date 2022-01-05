@@ -3,7 +3,7 @@ node('jenkins-slave') {
      stage('test pipeline') {
         sh(script: """
             echo "hello"
-           git clone git@github.com:javierocando155/prueba.git
+           git branch: 'main', credentialsId: 'jejejej', url: 'git@github.com:javierocando155/prueba.git'
            cd ./golang
            
            docker build -t test .
