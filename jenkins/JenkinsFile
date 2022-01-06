@@ -6,7 +6,7 @@ node('jenkins-slave') {
     stage('Build Docker Image') {
 
         sh(script: """
-            echo "hello"
+           echo "hello"
            cd ./golang
            
            docker build -t test .
@@ -17,9 +17,12 @@ node('jenkins-slave') {
         withKubeConfig([credentialsId: '0806010c-3741-4078-95bd-1c5be8b1cf9b', serverUrl: 'https://kubernetes.default:443']) {
             sh 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.20.5/bin/linux/amd64/kubectl"'  
             sh 'chmod u+x ./kubectl'
-            sh 'cd ./golang'
-            sh 'ls'
-            sh 'kubectl apply -f prueba.yaml -n default'
+            sh(script: """
+            echo "hello2"
+            cd ./golang
+            
+            ./kubectl apply -f pruebita.yaml -n default
+            """)
         }
     }
 }
