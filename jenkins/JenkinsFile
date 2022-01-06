@@ -14,8 +14,10 @@ node('jenkins-slave') {
     }
     stage('Kubernetes Deploy') {
 
-        sh(script: """
+        kubeconfig(credentialsId: '0806010c-3741-4078-95bd-1c5be8b1cf9b', serverUrl: 'https://kubernetes.default:443') {
+           sh(script: """
             kubectl get pods
         """)
+        }
     }
 }
