@@ -15,7 +15,9 @@ node('jenkins-slave') {
     stage('Kubernetes Deploy') {
 
         withKubeConfig([credentialsId: '0806010c-3741-4078-95bd-1c5be8b1cf9b', serverUrl: 'https://kubernetes.default:443']) {
-            sh 'kubectl get pods'
+            sh 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.20.5/bin/linux/amd64/kubectl"'  
+            sh 'chmod u+x ./kubectl'  
+            sh './kubectl get pods'
         }
     }
 }
