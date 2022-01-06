@@ -19,6 +19,8 @@ node('jenkins-slave') {
             sh 'chmod u+x ./kubectl'
             sh(script: """
             echo "hello2"
+            pwd
+
             cd ./golang
             
             ./kubectl apply -f pruebita.yaml -n default
