@@ -21,5 +21,6 @@ spec:
       - image: test:latest
         name: test
         imagePullPolicy: Never
+        namespace: default
         resources: {}
 status: {}
