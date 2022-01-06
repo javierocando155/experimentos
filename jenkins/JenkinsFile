@@ -3,7 +3,7 @@ node('jenkins-slave') {
     stage('Git') {
         git credentialsId: 'jejejej', url: 'git@github.com:javierocando155/prueba.git', branch: 'main'
     }
-    stage('Build Image') {
+    stage('Build Docker Image') {
 
         sh(script: """
             echo "hello"
