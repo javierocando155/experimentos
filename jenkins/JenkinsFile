@@ -22,10 +22,8 @@ node('jenkins-slave') {
             pwd
 
             cd ./golang
-
-            ../kubectl create ns dev
             
-            ../kubectl apply -f pruebita.yaml -n dev
+            ../kubectl apply -f pruebita.yaml -n default
             """)
         }
     }
